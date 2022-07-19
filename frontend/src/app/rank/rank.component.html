@@ -1,0 +1,56 @@
+<div class="container mt-5">
+<form [formGroup]="rankForm" (ngSubmit)="rankSubmit()">
+    
+    <div *ngIf="errorMsg" class="alert alert-warning" role="alert">
+        <strong>{{errorMsg}}</strong>
+    </div>
+    &nbsp;
+    
+    <div class="col-lg-4">
+        <input type="text" class="form-control" formControlName="name" placeholder="Name?">
+    </div>
+    &nbsp;
+    
+    <div class="col-lg-4">
+        <input type="text" class="form-control" formControlName="eamcet" placeholder="Eamcet Score?">
+    </div>
+    &nbsp;
+
+    <div class="col-lg-4">
+        <input type="text" class="form-control" formControlName="ip" placeholder="Inter Score?">
+    </div>
+    &nbsp;
+    <div class="col-lg-4">
+        <button class="btn btn-primary">Find</button>
+    </div>
+</form>
+&nbsp;
+    
+<div *ngIf="expectedMsg" class="alert alert-success" role="alert">
+    <strong>{{expectedMsg}}</strong>
+</div>
+&nbsp;
+<table class="table ">
+    <thead>
+      <tr>
+        <th scope="col">NAME</th>
+        
+        <th scope="col">EAMCET SCORE</th>
+        
+        <th scope="col">IP SCORE</th>
+        
+        <th scope="col">EXPECTED RANK</th>
+      </tr>
+      
+    </thead>
+    <tbody>
+      <tr *ngFor='let us of readData'>
+        <th scope="row">{{us.name}}</th>
+        <th scope="row">{{us.eamcet}}</th>
+        <th scope="row">{{us.ip}}</th>
+        <th scope="row">{{us.expectedRank}}</th>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>
