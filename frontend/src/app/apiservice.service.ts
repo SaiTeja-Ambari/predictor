@@ -14,8 +14,15 @@ export class ApiserviceService {
   getAlldata():Observable<any>{
     return this._http.get(`${this.url}`);
   }
+
   createData(data:any):Observable<any>{
     console.log(data);
     return this._http.post(`${this.url}`,data);
+  }
+
+  deleteData(id:any):Observable<any>{
+    let ids=id;
+    console.log(ids);
+    return this._http.delete(`${this.url}+${ids}`);
   }
 }

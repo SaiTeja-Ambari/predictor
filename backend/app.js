@@ -46,6 +46,16 @@ app.post('/', (req,res) => {
       });
 });
 
+app.delete('/:id',(req,res) =>{
+    let id = req.params.id;
+    var sql = `DELETE FROM verify where id=${id}`;
+    console.log(id);
+    db.query(sql, function (err, result) {
+        if (err) throw err;
+        console.log("record deleted");
+        res.send(result);
+      });
+});
 app.listen('3000', () =>{
     console.log('server started');
 });

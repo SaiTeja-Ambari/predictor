@@ -3,6 +3,7 @@
     
     <div *ngIf="errorMsg" class="alert alert-warning" role="alert">
         <strong>{{errorMsg}}</strong>
+        <button type="button" class="btn-close close-pad" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     &nbsp;
     
@@ -29,8 +30,11 @@
 <div *ngIf="expectedMsg" class="alert alert-success" role="alert">
     <strong>{{expectedMsg}}</strong>
 </div>
-&nbsp;
-<table class="table ">
+<button *ngIf="expectedMsg" class="btn btn-sm btn-secondary bottom" (click)="updateID()">Update your record</button>
+<button *ngIf="expectedMsg" class="btn btn-sm btn-danger bottom left" (click)="deleteID()">Delete your record</button>
+<br>
+
+<table class="table table-bordered">
     <thead>
       <tr>
         <th scope="col">NAME</th>
